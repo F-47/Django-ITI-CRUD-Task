@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Courses{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'courses/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="header">
+  <h1>Courses ({{ courses|length }})</h1>
+  <a href="{% url 'course_create' %}" class="add-course-btn">Add Course</a>
+</div>
+<table class="courses-table">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for course in courses %}
+    <tr>
+      <td>{{ course.code }}</td>
+      <td>{{ course.name }}</td>
+      <td>
+        <a href="{% url 'course_update' course.code %}" class="edit-btn">Edit</a>
+        <a href="{% url 'course_delete' course.code %}" class="delete-btn">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,65 @@
+.student-form-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.add-student-btn {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.add-student-btn:hover {
+  background-color: #45a049;
+}
+.students-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.student-card {
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
+}
+.student-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.student-card .student-info h2{
+  text-transform: capitalize;
+}
+.student-card .student-info p{
+  margin-bottom: 10px;
+}
+.edit-btn, .delete-btn {
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  margin: 0 0.2rem;
+  border-radius: 5px;
+  color: white;
+}
+.edit-btn {
+  background-color: #4CAF50;
+}
+.delete-btn {
+  background-color: #f44336;
+}

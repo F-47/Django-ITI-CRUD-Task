@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{% if form.instance.pk %}
+Update Course
+{% else %}
+Add Course
+{% endif %}
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'courses/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="courses-form-container">
+  <h1>Course Form</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+</div>
+
+{% endblock %}

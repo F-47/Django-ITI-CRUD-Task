@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}App{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+     <header class="navbar">
+      <div class="container">
+        <h1 class="logo"><a href="/">F47</a></h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="{% url 'students_list' %}">Students</a></li>
+            <li><a href="{% url 'courses_list' %}">Courses</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

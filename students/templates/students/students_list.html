@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Students{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'students/index.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="header">
+  <h1>Students ({{ students|length }})</h1>
+  <a href="{% url 'student_create' %}" class="add-student-btn">Add Student</a>
+</div>
+<div class="students-grid">
+  {% for student in students %}
+  <div class="student-card">
+    <div class="student-image">
+      {% if student.image %}
+        <img src="{{ student.image.url }}" alt="{{ student.name }}" />
+      {% else %}
+        <div class="placeholder-image">No Image</div>
+      {% endif %}
+    </div>
+    <div class="student-info">
+      <h2>{{ student.name }}</h2>
+      <p>Age: {{ student.age }}</p>
+    </div>
+    <div class="student-actions">
+      <a href="{% url 'student_update' student.id %}" class="edit-btn">Edit</a>
+      <a href="{% url 'student_delete' student.id %}" class="delete-btn">Delete</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
